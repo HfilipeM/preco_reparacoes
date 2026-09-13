@@ -1,6 +1,18 @@
 {
-  "gerado_em": null,
+  "gerado_em": "2026-09-13T20:00:16",
   "alteracoes_preco": [],
   "edicoes_manuais": [],
-  "execucoes": []
+  "execucoes": [
+    {
+      "data_inicio": "2026-09-13 19:57:22",
+      "data_fim": null,
+      "modo": "completo",
+      "modelos_novos": 0,
+      "precos_novos": 0,
+      "precos_alterados": 0,
+      "precos_iguais": 0,
+      "inativados": 0,
+      "estado": "em_curso"
+    }
+  ]
 }
