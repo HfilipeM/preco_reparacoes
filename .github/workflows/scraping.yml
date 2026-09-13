@@ -3,7 +3,7 @@ name: Atualizar Preços (iServices)
 on:
   # Corre automaticamente todas as segundas-feiras às 7h (hora de Lisboa no verão)
   schedule:
-    - cron: "0 6 * * 1"
+    - cron: "0 6 * * 0"
 
   # Permite correr manualmente no GitHub (botão "Run workflow")
   workflow_dispatch:
