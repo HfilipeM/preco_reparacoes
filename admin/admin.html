@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Administração — Painel de Preços</title>
+<link rel="stylesheet" href="../assets/style.css" />
+</head>
+<body>
+
+<header class="topbar">
+  <div class="topbar__brand">
+    <span class="topbar__title">Painel de Preços</span>
+    <span class="topbar__crumbs">/ Administração (local)</span>
+  </div>
+  <div class="topbar__actions">
+    <button class="btn btn--amber" id="btn-atualizar">&#8635; Atualizar preços</button>
+    <button class="btn btn--success" id="btn-publicar">&#8593; Publicar</button>
+    <button class="btn btn--primary" id="btn-registar">+ Registar</button>
+  </div>
+</header>
+
+<nav class="tabs">
+  <a href="#" id="tab-precos" class="active">Preços</a>
+  <a href="#" id="tab-historico">Histórico</a>
+</nav>
+
+<main class="container">
+
+  <section id="pagina-precos">
+    <div class="search-box">
+      <label for="busca">Pesquisar (marca, modelo, serviço ou qualidade)</label>
+      <input type="text" id="busca" placeholder="ex: ecrã iphone 16, bateria samsung, original..." autocomplete="off" />
+      <div class="filters-row">
+        <select id="filtro-marca"><option value="">Todas as marcas</option></select>
+        <select id="filtro-modelo"><option value="">Todos os modelos</option></select>
+      </div>
+    </div>
+
+    <div id="contagem" class="result-count"></div>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Marca</th><th>Modelo</th><th>Serviço</th><th>Qualidade</th>
+            <th class="num">Preço</th><th class="actions"></th>
+          </tr>
+        </thead>
+        <tbody id="corpo-tabela">
+          <tr><td colspan="6"><div class="empty-state">A carregar…</div></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section id="pagina-historico" style="display:none">
+    <div class="history-section">
+      <h2>Sincronizações (scraping)</h2>
+      <div class="table-wrap" id="sec-execucoes"></div>
+    </div>
+    <div class="history-section">
+      <h2>Alterações de preço detetadas automaticamente</h2>
+      <div class="table-wrap" id="sec-alteracoes"></div>
+    </div>
+    <div class="history-section">
+      <h2>Edições manuais</h2>
+      <div class="table-wrap" id="sec-edicoes"></div>
+    </div>
+  </section>
+
+</main>
+
+<div id="modal-root"></div>
+<div id="toast-root"></div>
+
+<script src="../assets/shared.js"></script>
+<script src="../assets/historico.js"></script>
+<script src="admin.js"></script>
+</body>
+</html>

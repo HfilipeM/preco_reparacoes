@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Histórico — Painel de Preços</title>
+<meta name="robots" content="noindex, nofollow" />
+<link rel="stylesheet" href="assets/style.css" />
+</head>
+<body>
+
+<header class="topbar">
+  <div class="topbar__brand">
+    <span class="topbar__title">Painel de Preços</span>
+    <span class="topbar__crumbs">/ Histórico</span>
+  </div>
+</header>
+
+<nav class="tabs">
+  <a href="index.html">Preços</a>
+  <a href="historico.html" class="active">Histórico</a>
+</nav>
+
+<main class="container" id="historico-root">
+  <div class="history-section">
+    <h2>Sincronizações (scraping)</h2>
+    <div class="table-wrap" id="sec-execucoes"></div>
+  </div>
+
+  <div class="history-section">
+    <h2>Alterações de preço detetadas automaticamente</h2>
+    <div class="table-wrap" id="sec-alteracoes"></div>
+  </div>
+
+  <div class="history-section">
+    <h2>Edições manuais</h2>
+    <div class="table-wrap" id="sec-edicoes"></div>
+  </div>
+</main>
+
+<script src="assets/shared.js"></script>
+<script src="assets/historico.js"></script>
+<script>carregarHistorico();</script>
+</body>
+</html>

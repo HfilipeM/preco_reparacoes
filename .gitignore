@@ -1,0 +1,15 @@
+# Base de dados local (fonte de trabalho do painel de administração —
+# NÃO precisa de ser publicada; só os .json em /data são publicados)
+data/iservices.db
+
+# Ficheiros Python
+__pycache__/
+*.pyc
+
+# Ambientes virtuais, se vierem a usar um
+.venv/
+venv/
+
+# Ficheiros de sistema
+.DS_Store
+Thumbs.db

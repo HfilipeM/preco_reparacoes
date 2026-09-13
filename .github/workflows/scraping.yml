@@ -1,0 +1,48 @@
+name: Atualizar Preços (iServices)
+
+on:
+  # Corre automaticamente todas as segundas-feiras às 7h (hora de Lisboa no verão)
+  schedule:
+    - cron: "0 6 * * 1"
+
+  # Permite correr manualmente no GitHub (botão "Run workflow")
+  workflow_dispatch:
+
+jobs:
+  scraping:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write   # necessário para fazer commit dos JSONs
+
+    steps:
+      - name: Clonar repositório
+        uses: actions/checkout@v4
+
+      - name: Instalar Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: "pip"
+
+      - name: Instalar dependências Python
+        run: pip install flask requests beautifulsoup4 playwright
+
+      - name: Instalar browser Chromium (Playwright)
+        run: python -m playwright install chromium --with-deps
+
+      - name: Correr scraping
+        run: |
+          python scripts/iservices_sync.py \
+            --db data/iservices.db \
+            --json data/precos.json \
+            --historico data/historico.json
+
+      - name: Publicar JSONs atualizados no repositório
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add data/precos.json data/historico.json
+          # Só faz commit se houver alterações
+          git diff --cached --quiet && echo "Sem alterações nos preços." || \
+            git commit -m "Preços atualizados automaticamente ($(date '+%d/%m/%Y %H:%M'))"
+          git push
